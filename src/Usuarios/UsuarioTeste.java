@@ -6,7 +6,7 @@ public class UsuarioTeste {
         System.out.println("========== TESTE DA CLASSE USUARIO ==========\n");
 
         // Criar um novo usuário
-        usuario user = new usuario();
+        Usuario user = new Usuario();
         user.nome = "João Silva";
         user.saldo = 100.0;
 
