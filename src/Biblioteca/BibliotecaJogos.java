@@ -16,6 +16,7 @@ public class BibliotecaJogos {
             "Super Mario Bross",
             "Mortal Kombat 11",
             "Valorant",
+            "League of Legends",
     };
 
     // Listar os jogos
