@@ -1,13 +1,13 @@
 package Usuarios;
 
-public class usuario {
+public class Usuario {
 
     String nome;
     boolean logado;
     double saldo;
-    String[] jogosComprados = new String[10];
+    public String[] jogosComprados = new String[10];
     boolean[] instalado = new boolean[10];
-    int quantidadeJogos = 0;
+    public int quantidadeJogos = 0;
 
     // Função para o login
     public void login() {
