@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class Administrador {
+public class administrador {
     public String nome;
     public String nivelAcesso;
     public ArrayList<String> usuariosRemovidos;
     public ArrayList<String> jogosAdicionados;
     public ArrayList<String> jogosRemovidos;
 
-    public Administrador(String nome, String nivelAcesso) {
+    public administrador(String nome, String nivelAcesso) {
         this.nome = nome;
         this.nivelAcesso = nivelAcesso;
         this.usuariosRemovidos = new ArrayList<>();

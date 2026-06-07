@@ -6,23 +6,23 @@
 
      public criadorjogo(String nome,String descricao,double preco,int vendas){
          this.nome=nome;
-         this.descricao=descricao
-         this.preco=preco
-         this.vendas=vendas
+         this.descricao=descricao;
+         this.preco=preco;
+         this.vendas=vendas;
      }
      public boolean publicarJogo(){
-         return true
+         return true;
      }
      public boolean removerJogo(){
-         return true
+         return true;
      }
      public int verVendas(){
-         return this.vendas
+         return this.vendas;
      }
      public void editarJogo(String nome,String descricao,double preco){
-         this.nome=nome
-         this.descricao=descricao
-         this.preco=preco
+         this.nome=nome;
+         this.descricao=descricao;
+         this.preco=preco;
      }
      @Override
      public String toString(){
@@ -31,7 +31,7 @@
                  ", descricao='" + descricao + '\'' +
                  ", preco=" + preco +
                  ", vendas=" + vendas +
-                 '}'
+                 '}';
      }
 
     }
