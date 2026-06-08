@@ -11,8 +11,8 @@ public class GerenciadorJogos {
         this.jogosRemovidos = new ArrayList<>();
     }
 
-    public boolean criarJogo(String nome, String descricao, String genero){
-        Jogo novoJogo = new Jogo(nome,descricao,genero);
+    public boolean criarJogo(String nome, String descricao, String genero,double preco){
+        Jogo novoJogo = new Jogo(nome,descricao,genero,preco);
         jogosAtivos.add(novoJogo);
         System.out.println("Jogo criado com sucesso: " + nome);
         return true;
