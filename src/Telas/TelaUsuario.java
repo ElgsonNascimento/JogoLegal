@@ -6,13 +6,6 @@ import javax.swing.*;
 public class TelaUsuario extends JFrame {
 
     private static final String[][] CATALOGO = {
-        {"Cyber Quest",   "59.90"},
-        {"Dragon Arena",  "39.90"},
-        {"Space Run",     "29.90"},
-        {"Pixel Farm",    "19.90"},
-        {"Turbo Racer",   "49.90"},
-        {"Shadow Blade",  "44.90"},
-        {"Neon City",     "34.90"},
     };
 
     private String nome;
