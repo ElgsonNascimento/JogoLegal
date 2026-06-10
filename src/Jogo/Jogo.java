@@ -33,7 +33,7 @@ public class Jogo {
     public String getGenero() {
         return genero;
     }
-    public void setPreco(){
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 

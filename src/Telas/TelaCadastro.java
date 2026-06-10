@@ -1,8 +1,9 @@
-package interfacejogolegal;
+package Telas;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import interfacejogolegal.SistemaLogin;
 
 public class TelaCadastro extends JFrame {
 
@@ -78,7 +79,7 @@ public class TelaCadastro extends JFrame {
         btnVoltar.setFocusPainted(false);
         btnVoltar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        btnCadastrar.addActionListener(e -> {
+        btnCadastrar.addActionListener(_ -> {
             String nome  = txtNome.getText().trim();
             String senha = new String(txtSenha.getPassword());
             String tipo  = rbAdmin.isSelected()   ? "admin"
@@ -94,10 +95,15 @@ public class TelaCadastro extends JFrame {
             JOptionPane.showMessageDialog(this,
                 "Conta criada! Bem-vindo, " + nome + "!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             dispose();
-            TelaLogin.abrirMenuPorTipo(nome, tipo, sistema);
+            
+            if ("criador".equals(tipo)) {
+                new TelaCriadorJogo(nome);
+            } else {
+                new TelaUsuario(nome, sistema);
+            }
         });
 
-        btnVoltar.addActionListener(e -> { dispose(); new TelaLogin(); });
+        btnVoltar.addActionListener(_ -> { dispose(); new TelaLogin(); });
 
         painel.add(titulo);    painel.add(subtitulo);
         painel.add(lblNome);   painel.add(txtNome);

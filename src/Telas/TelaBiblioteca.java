@@ -1,4 +1,4 @@
-package interfacejogolegal;
+package Telas;
 
 import java.awt.*;
 import javax.swing.*;
@@ -10,7 +10,7 @@ public class TelaBiblioteca extends JFrame {
         "Cyber Quest", "Dragon Arena", "Space Run"
     };
 
-    public TelaBiblioteca(String nome, SistemaLogin sistema) {
+    public TelaBiblioteca(String nome, interfacejogolegal.SistemaLogin sistema) {
         setTitle("JOGO LEGAL - Biblioteca");
         setSize(520, 560);
         setLocationRelativeTo(null);

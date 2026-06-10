@@ -1,59 +1,55 @@
 package Carrinho;
 
+import Jogo.Jogo;
 import java.util.ArrayList;
-import Usuarios.Usuario;
 
 public class Carrinho {
-	private ArrayList<Jogo> jogos;
+    private ArrayList<Jogo> jogos;
 
-	public Carrinho() {
-		this.jogos = new ArrayList<>();
-	}
+    public Carrinho() {
+        this.jogos = new ArrayList<>();
+    }
 
-	public void adicionarJogo(Jogo jogo) {
-		jogos.add(jogo);
-		System.out.println(jogo.getNome() + " foi adicionado ao carrinho.");
-	}
+    public void adicionarJogo(Jogo jogo) {
+        jogos.add(jogo);
+    }
 
-	public void removerJogo(Jogo jogo) {
-		if (jogos.remove(jogo)) {
-			System.out.println(jogo.getNome() + " foi removido do carrinho.");
-		} else {
-			System.out.println("Esse jogo não está no carrinho.");
-		}
-	}
+    public boolean removerJogo(Jogo jogo) {
+        return jogos.remove(jogo);
+    }
 
-	public double calcularTotal() {
-		double total = 0;
+    public ArrayList<Jogo> getJogos() {
+        return this.jogos;
+    }
 
-		for (Jogo jogo : jogos) {
-			total += jogo.getPreco();
-		}
+    public double calcularTotal() {
+        double total = 0;
+        for (Jogo jogo : jogos) {
+            total += jogo.getPreco();
+        }
+        return total;
+    }
 
-		return total;
-	}
+    /**
+     * Finaliza a compra dos jogos.
+     * @return 1 se sucesso, -1 se vazio, 0 se saldo insuficiente.
+     */
+    public int finalizarCompra(ArrayList<Jogo> bibliotecaUsuario, double saldoUsuario) {
+        if (jogos.isEmpty()) {
+            return -1; // Carrinho vazio
+        }
 
-	public void finalizarCompra(Usuario usuario) {
-		double total = calcularTotal();
+        double total = calcularTotal();
+        if (saldoUsuario >= total) {
+            // Transfere os objetos Jogo diretamente para a lista da biblioteca
+            for (Jogo jogo : jogos) {
+                // Altera o status padrão caso queira iniciar como "Comprado"
+                bibliotecaUsuario.add(jogo);
+            }
+            jogos.clear(); // Limpa o carrinho pós-compra
+            return 1; // Sucesso
+        }
 
-		if (jogos.isEmpty()) {
-			System.out.println("O carrinho está vazio.");
-			return;
-		}
-
-		if (usuario.getSaldo() >= total) {
-			usuario.setSaldo(usuario.getSaldo() - total);
-
-			for (Jogo jogo : jogos) {
-				// registrar compra e instalar usando o nome do jogo
-				usuario.comprarJogo(jogo.getNome());
-				usuario.instalarJogo(jogo.getNome());
-			}
-
-			jogos.clear();
-			System.out.println("Compra finalizada com sucesso!");
-		} else {
-			System.out.println("Saldo insuficiente.");
-		}
-	}
+        return 0; // Saldo insuficiente
+    }
 }

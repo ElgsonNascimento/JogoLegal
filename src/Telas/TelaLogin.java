@@ -1,8 +1,9 @@
-package interfacejogolegal;
+package Telas;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import interfacejogolegal.SistemaLogin;
 
 public class TelaLogin extends JFrame {
 
@@ -84,10 +85,10 @@ public class TelaLogin extends JFrame {
             }
         };
 
-        btnEntrar.addActionListener(e -> acaoLogin.run());
-        txtSenha.addActionListener(e -> acaoLogin.run());
-        btnCadastrar.addActionListener(e -> { dispose(); new TelaCadastro(sistema); });
-        btnRecuperar.addActionListener(e -> {
+        btnEntrar.addActionListener(_ -> acaoLogin.run());
+        txtSenha.addActionListener(_ -> acaoLogin.run());
+        btnCadastrar.addActionListener(_ -> { dispose(); new TelaCadastro(sistema); });
+        btnRecuperar.addActionListener(_ -> {
             String nome = txtUsuario.getText().trim();
             if (nome.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Digite seu nome de usuário primeiro.");
@@ -108,10 +109,11 @@ public class TelaLogin extends JFrame {
 
     static void abrirMenuPorTipo(String nome, String tipo, SistemaLogin sistema) {
         if (tipo == null) tipo = "usuario";
-        switch (tipo) {
-            case "admin":   new TelaAdministrador(nome, sistema); break;
-            case "criador": new TelaCriadorJogo(nome);            break;
-            default:        new TelaUsuario(nome, sistema);       break;
+        
+        if ("criador".equals(tipo)) {
+            new TelaCriadorJogo(nome);
+        } else {
+            new TelaUsuario(nome, sistema);
         }
     }
 }

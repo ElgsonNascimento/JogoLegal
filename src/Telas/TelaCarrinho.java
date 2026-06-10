@@ -1,12 +1,15 @@
-package interfacejogolegal;
+package Telas;
 
+import Jogo.Jogo;
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import interfacejogolegal.SistemaLogin;
 
 public class TelaCarrinho extends JFrame {
 
-    public TelaCarrinho(String nome, SistemaLogin sistema) {
+    public TelaCarrinho(String nome, SistemaLogin sistema, ArrayList<Jogo> carrinhoJogos) {
         setTitle("JOGO LEGAL - Carrinho");
         setSize(500, 530);
         setLocationRelativeTo(null);
@@ -62,8 +65,39 @@ public class TelaCarrinho extends JFrame {
         btnFechar.setFocusPainted(false);
         btnFechar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        btnFinalizar.addActionListener(e -> { dispose(); new TelaPagamento(nome, sistema); });
-        btnFechar.addActionListener(e -> dispose());
+        // preencher lista com o conteúdo do carrinho
+        double total = 0.0;
+        if (carrinhoJogos != null) {
+            for (Jogo j : carrinhoJogos) {
+                modelo.addElement(String.format("%s — R$ %.2f", j.getNome(), j.getPreco()));
+                total += j.getPreco();
+            }
+        }
+        lblTotal.setText(String.format("Total: R$ %.2f", total));
+
+        btnFinalizar.addActionListener(_ -> { dispose(); new TelaPagamento(nome, sistema, carrinhoJogos); });
+        btnFechar.addActionListener(_ -> dispose());
+
+        btnRemover.addActionListener(_ -> {
+            int idx = listaJogos.getSelectedIndex();
+            if (idx >= 0) {
+                modelo.remove(idx);
+                if (carrinhoJogos != null && idx < carrinhoJogos.size()) {
+                    carrinhoJogos.remove(idx);
+                }
+                double tot2 = 0.0;
+                if (carrinhoJogos != null) for (Jogo j : carrinhoJogos) tot2 += j.getPreco();
+                lblTotal.setText(String.format("Total: R$ %.2f", tot2));
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione um jogo para remover.");
+            }
+        });
+
+        btnLimpar.addActionListener(_ -> {
+            if (carrinhoJogos != null) carrinhoJogos.clear();
+            modelo.clear();
+            lblTotal.setText("Total: R$ 0,00");
+        });
 
         painel.add(titulo); painel.add(scroll); painel.add(lblTotal);
         painel.add(btnRemover); painel.add(btnLimpar);

@@ -1,4 +1,4 @@
-package interfacejogolegal;
+package Telas;
 
 public class Jogo {
     private String nome;
