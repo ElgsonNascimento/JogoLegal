@@ -1,4 +1,4 @@
-package interfacejogolegal;
+package Telas;
 
 /**
  * Gerencia a exibição dos menus do sistema.

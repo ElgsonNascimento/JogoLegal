@@ -1,4 +1,6 @@
-package interfacejogolegal;
+package Telas;
+
+import Telas.TelaLogin;
 
 import java.awt.*;
 import javax.swing.*;
@@ -44,7 +46,7 @@ public class TelaCriadorJogo extends JFrame {
         estilizar(btnLogout, new Color(60, 63, 65));
         btnLogout.setBounds(175, 380, 150, 40);
 
-        btnLogout.addActionListener(e -> { dispose(); new TelaLogin(); });
+        btnLogout.addActionListener(_ -> { dispose(); new TelaLogin(); });
 
         painel.add(titulo); painel.add(subtitulo);
         painel.add(btnPublicar); painel.add(btnEditar);

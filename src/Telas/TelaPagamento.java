@@ -1,8 +1,10 @@
-package interfacejogolegal;
+package Telas;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import interfacejogolegal.SistemaLogin;
+import Telas.TelaCarrinho;
 
 public class TelaPagamento extends JFrame {
 
@@ -49,7 +51,7 @@ public class TelaPagamento extends JFrame {
         campoNumero.setCaretColor(Color.WHITE);
         campoNumero.setBorder(new LineBorder(Color.GRAY, 1));
 
-        comboMetodo.addActionListener(e -> {
+        comboMetodo.addActionListener(_ -> {
             String m = (String) comboMetodo.getSelectedItem();
             boolean cartao = m != null && m.startsWith("Cartão");
             lblNumero.setVisible(cartao);
@@ -71,7 +73,7 @@ public class TelaPagamento extends JFrame {
         btnCancelar.setFocusPainted(false);
         btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        btnCancelar.addActionListener(e -> { dispose(); new TelaCarrinho(nome, sistema); });
+        btnCancelar.addActionListener(_ -> { dispose(); new TelaCarrinho(nome, sistema); });
 
         painel.add(titulo);    painel.add(lblTotal);
         painel.add(lblMetodo); painel.add(comboMetodo);

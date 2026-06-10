@@ -1,8 +1,9 @@
-package interfacejogolegal;
+package Telas;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import interfacejogolegal.SistemaLogin;
 
 public class TelaCarrinho extends JFrame {
 
@@ -62,8 +63,8 @@ public class TelaCarrinho extends JFrame {
         btnFechar.setFocusPainted(false);
         btnFechar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        btnFinalizar.addActionListener(e -> { dispose(); new TelaPagamento(nome, sistema); });
-        btnFechar.addActionListener(e -> dispose());
+        btnFinalizar.addActionListener(_ -> { dispose(); new TelaPagamento(nome, sistema); });
+        btnFechar.addActionListener(_ -> dispose());
 
         painel.add(titulo); painel.add(scroll); painel.add(lblTotal);
         painel.add(btnRemover); painel.add(btnLimpar);
