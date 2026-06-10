@@ -18,11 +18,13 @@ public class TelaUsuario extends JFrame {
     private SistemaLogin sistema;
     private JPanel painelJogos;
     private ArrayList<Jogo> bibliotecaJogos;
+    private ArrayList<Jogo> carrinhoJogos;
 
     public TelaUsuario(String nome, SistemaLogin sistema) {
         this.nome = nome;
         this.sistema = sistema;
         this.bibliotecaJogos = new ArrayList<>();
+        this.carrinhoJogos = new ArrayList<>();
 
         // Carga inicial para testes na biblioteca
         this.bibliotecaJogos.add(new Jogo("Cyber Quest", "RPG Futurista de mundo aberto.", "RPG", 59.90));
@@ -90,7 +92,7 @@ public class TelaUsuario extends JFrame {
         btnLogout.setFont(new Font("Arial", Font.BOLD, 13));
         btnLogout.setFocusPainted(false);
 
-        btnCarrinho.addActionListener(_ -> new TelaCarrinho(nome, sistema));
+        btnCarrinho.addActionListener(_ -> new TelaCarrinho(nome, sistema, carrinhoJogos));
         btnLogout.addActionListener(_ -> { dispose(); });
 
         painel.add(titulo); painel.add(sub); painel.add(lblCatalogo);
@@ -157,8 +159,8 @@ public class TelaUsuario extends JFrame {
                 }
             }
             Jogo novoJogo = new Jogo(nome, "Adquirido na loja virtual.", genero, preco);
-            this.bibliotecaJogos.add(novoJogo); // Simulação de compra direta adicionando à biblioteca
-            JOptionPane.showMessageDialog(null, "\"" + nome + "\" adicionado à biblioteca com sucesso!");
+            this.carrinhoJogos.add(novoJogo); // adiciona ao carrinho
+            JOptionPane.showMessageDialog(null, "\"" + nome + "\" adicionado ao carrinho!");
         });
 
         linha.add(lblNome);

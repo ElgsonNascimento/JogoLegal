@@ -1,6 +1,8 @@
 package Telas;
 
+import Jogo.Jogo;
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import interfacejogolegal.SistemaLogin;
@@ -8,7 +10,7 @@ import Telas.TelaCarrinho;
 
 public class TelaPagamento extends JFrame {
 
-    public TelaPagamento(String nome, SistemaLogin sistema) {
+    public TelaPagamento(String nome, SistemaLogin sistema, ArrayList<Jogo> carrinhoJogos) {
         setTitle("JOGO LEGAL - Pagamento");
         setSize(500, 460);
         setLocationRelativeTo(null);
@@ -24,7 +26,12 @@ public class TelaPagamento extends JFrame {
         titulo.setBounds(0, 20, 500, 35);
         titulo.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JLabel lblTotal = new JLabel("Total a pagar: R$ --");
+        double total = 0.0;
+        if (carrinhoJogos != null) {
+            for (Jogo j : carrinhoJogos) total += j.getPreco();
+        }
+
+        JLabel lblTotal = new JLabel(String.format("Total a pagar: R$ %.2f", total));
         lblTotal.setForeground(new Color(0, 200, 100));
         lblTotal.setFont(new Font("Arial", Font.BOLD, 17));
         lblTotal.setBounds(0, 58, 500, 24);
@@ -73,7 +80,7 @@ public class TelaPagamento extends JFrame {
         btnCancelar.setFocusPainted(false);
         btnCancelar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        btnCancelar.addActionListener(_ -> { dispose(); new TelaCarrinho(nome, sistema); });
+        btnCancelar.addActionListener(_ -> { dispose(); new TelaCarrinho(nome, sistema, carrinhoJogos); });
 
         painel.add(titulo);    painel.add(lblTotal);
         painel.add(lblMetodo); painel.add(comboMetodo);
