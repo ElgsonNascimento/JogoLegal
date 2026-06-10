@@ -5,18 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="558e4573-07f9-4238-9dde-38cd1297b9cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MainTeste.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pagamento/Pagamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pagamento/MainTeste.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pagamento/PagamentoCartao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pagamento/PagamentoPix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pagamento/PagamentoSaldo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/Administrador/Administrador.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/CriadorJogo/CriadorJogo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/CriadorJogo/MainCriadorJogo.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/GerenciadorJogos/GerenciadorJogos.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/Jogo/Jogo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/JogoLegal2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/Pagamento/Pagamento$TipoPagamento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/Pagamento/Pagamento.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/Usuarios/usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoLegal2/pagamento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pagamento/pagamento.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pagamento/Pagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pagamento/Pagamento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +60,7 @@
     "Application.Main.executor": "Run",
     "Application.MainCriadorJogo.executor": "Run",
     "Application.MainTeste.executor": "Run",
+    "Application.Pagamento.MainTeste.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -67,7 +69,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "acaioba",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
