@@ -1,18 +1,22 @@
 package Pagamento;
 
 import java.util.Date;
-
+import java.util.Calendar;
 public class PagamentoCartao extends Pagamento {
     private String numeroCartao;
     private String nomeTitular;
     private String cvv;
+    private int mesVencimento;
+    private int anoVencimento;
     private boolean cartaoValido;
-    public PagamentoCartao(int id, double valor, String numeroCartao, String nomeTitular, String cvv) {
+    public PagamentoCartao(int id, double valor, String numeroCartao, String nomeTitular, String cvv, int mesVencimento, int anoVencimento) {
         super(id, valor, TipoPagamento.CARTAO);
         this.numeroCartao = numeroCartao;
         this.nomeTitular = nomeTitular;
         this.cvv = cvv;
-        this.cartaoValido = cartaoValido;
+        this.mesVencimento = mesVencimento;
+        this.anoVencimento = anoVencimento;
+        this.cartaoValido = validarCartao() && validarVencimento();
     }
     private boolean validarCartao() {
         String num = numeroCartao.replaceAll("[\s-]+", "");
@@ -42,6 +46,21 @@ public class PagamentoCartao extends Pagamento {
 
         // Verifica se é divisível por 10
         return (sum % 10 == 0);
+    }
+    private boolean validarVencimento(){
+        if (mesVencimento<1 ||mesVencimento>12){
+            return false;
+        }
+        Calendar cal = Calendar.getInstance();
+        int anoAtual=cal.get(Calendar.YEAR);
+        int mesAtual=cal.get(Calendar.MONTH)+1;
+        if (anoVencimento<anoAtual){
+            return false;
+        }
+        if (anoVencimento==anoAtual && mesVencimento<mesAtual) {
+            return false;
+        }
+        return true;
     }
     @Override
     public void processarPagamento() {
